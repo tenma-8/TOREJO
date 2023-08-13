@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('body_records_', function (Blueprint $table) {
             $table->id();
+            $table->double('height', 5, 2);
+            $table->double('weight', 5, 2);
             $table->timestamps();
         });
     }

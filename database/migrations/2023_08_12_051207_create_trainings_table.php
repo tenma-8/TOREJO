@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('trainings', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 30);
+            $table->string('part', 30);
+            $table->string('body', 200)->nullable();
+            $table->string('video_url')->nullable();
             $table->timestamps();
         });
     }
