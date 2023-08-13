@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('trainings', function (Blueprint $table) {
-            //
+        Schema::table('body_records', function (Blueprint $table) {
+        $table->bigInteger('user_id')->unsigned();
         });
     }
 
@@ -25,7 +25,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('trainings', function (Blueprint $table) {
+        Schema::table('body_records', function (Blueprint $table) {
             //
         });
     }
