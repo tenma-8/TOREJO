@@ -13,11 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('body_parts', function (Blueprint $table) {
-            $table->id();
-            $table->string('name', 30);
-            $table->timestamps();
-        });
+        Schema::dropIfExists('exercise_records_');//
     }
 
     /**
@@ -27,6 +23,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('body_parts');
+       Schema::create('exercise_records_', function (Blueprint $table) {//
+        }); //
     }
 };

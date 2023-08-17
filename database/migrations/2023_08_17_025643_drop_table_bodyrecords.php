@@ -13,9 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('body_records', function (Blueprint $table) {
-        $table->bigInteger('user_id')->unsigned();
-        });
+       Schema::dropIfExists('body_records_'); //
     }
 
     /**
@@ -25,8 +23,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('body_records', function (Blueprint $table) {
-            //
+        Schema::create('body_records_', function (Blueprint $table) {//
+    
         });
-    }
+        }
 };

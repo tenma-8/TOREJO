@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use App\Models\Body_records;
 
 class User extends Authenticatable
 {
@@ -46,5 +45,15 @@ class User extends Authenticatable
     public function body_records()
     {
         return $this->hasMany(Body_record::class);
+    }
+    
+    public function exercise_records()
+    {
+        return $this->hasMany(Exercise_record::class);
+    }
+    
+    public function training_suggestions()
+    {
+        return $this->hasMany(Training_suggestion::class);
     }
 }
