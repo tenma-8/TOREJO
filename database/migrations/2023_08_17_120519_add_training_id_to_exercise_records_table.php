@@ -13,10 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('body_parts', function (Blueprint $table) {
-            $table->id();
-            $table->string('name', 30);
-            $table->timestamps();
+        Schema::table('exercise_records', function (Blueprint $table) {
+            $table->foreignId('training_id')->constrained();//
+//
         });
     }
 
@@ -27,6 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('body_parts');
+        Schema::table('exercise_records', function (Blueprint $table) {
+            //
+        });
     }
 };

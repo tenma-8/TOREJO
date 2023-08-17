@@ -13,9 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('category_training', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('body_part_trainings', function (Blueprint $table) {
+            $table->foreignId('body_part_id')->constrained();//
         });
     }
 
@@ -26,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category_training');
+        Schema::table('body_part_trainings', function (Blueprint $table) {
+            //
+        });
     }
 };

@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Body_part extends Model
 {
     use HasFactory;
+    
+    public function body_part_trainings()
+    {
+        return $this->hasMany(Body_part_training::class);
+    }
 }

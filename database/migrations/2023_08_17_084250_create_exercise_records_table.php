@@ -13,9 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('body_parts', function (Blueprint $table) {
+        Schema::create('exercise_records', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 30);
+            $table->unsigned('user_id');
+            $table->unsigned('training_id');
+            $table->integer('count');//回数
+            $table->double('weight', 5, 2);//重量
+            $table->string('comment');//コメント
+            $table->double('numerical_value', 5, 2);//数値　ex.球速、50Mタイム
             $table->timestamps();
         });
     }
@@ -27,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('body_parts');
+        Schema::dropIfExists('exercise_records');
     }
 };

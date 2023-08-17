@@ -13,9 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('training_suggestions', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('body_records', function (Blueprint $table) {
+            $table->foreignId('user_id')->constrained();//
         });
     }
 
@@ -26,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('training_suggestions');
+        Schema::table('body_records', function (Blueprint $table) {
+            //
+        });
     }
 };
