@@ -20,5 +20,7 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        $this->call(userTableSeeder::class);
+        $this->call(BodyRecordTableSeeder::class);
     }
 }

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\testController;
+use App\Http\Controllers\BodyRecordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+    });
+    
+Route::get('/test', [testController::class, 'test']);
+
+Route::get('/body_records', [BodyRecordController::class, 'index']);
+
