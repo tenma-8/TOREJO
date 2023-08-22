@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Usre;
 
-class Body_record extends Model
+class BodyRecord extends Model
 {
     use HasFactory;
     
@@ -15,4 +15,10 @@ class Body_record extends Model
     {
         return $this->belongsTo(User::class);
     }
+    
+    protected $fillable = [
+    'height',
+    'weight',
+    ];
+
 }
