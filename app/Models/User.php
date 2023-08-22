@@ -44,7 +44,7 @@ class User extends Authenticatable
     
     public function body_records()
     {
-        return $this->hasMany(Body_record::class);
+        return $this->hasMany(BodyRecord::class);
     }
     
     public function exercise_records()

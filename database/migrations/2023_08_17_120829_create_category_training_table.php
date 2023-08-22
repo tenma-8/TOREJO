@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('category_training', function (Blueprint $table) {
             $table->id();
-            $table->unsigned('training_id');
-            $table->unsigned('category_id');
+            $table->foreignId('training_id')->constrained();//            //
+            $table->foreignId('category_id')->constrained();
             $table->timestamps();
         });
     }

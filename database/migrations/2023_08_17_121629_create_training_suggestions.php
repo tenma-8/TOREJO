@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('training_suggestions', function (Blueprint $table) {
             $table->id();
-            $table->unsigned('user_id');
-            $table->unsigned('training_id');
+            $table->foreignId('user_id')->constrained();//
+            $table->foreignId('training_id')->constrained();//
             $table->timestampTz('original_created_at')->nullable();
             $table->timestamps();
         });

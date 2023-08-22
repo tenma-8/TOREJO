@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('exercise_records', function (Blueprint $table) {
             $table->id();
-            $table->unsigned('user_id');
-            $table->unsigned('training_id');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('training_id')->constrained();//
             $table->integer('count');//回数
             $table->double('weight', 5, 2);//重量
             $table->string('comment');//コメント

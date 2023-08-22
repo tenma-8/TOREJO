@@ -15,11 +15,16 @@ use App\Http\Controllers\BodyRecordController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-    });
-    
-Route::get('/test', [testController::class, 'test']);
+Route::get('/',[BodyRecordController::class, 'body']);
 
-Route::get('/body_records', [BodyRecordController::class, 'index']);
+Route::get('/body_records/body', [BodyRecordController::class, 'create']);
+
+Route::post('/body_records', [BodyRecordController::class, 'store']);
+//Route::get('/', function () {
+    //return view('body_records/body');
+    //});
+    
+//Route::get('/test', [testController::class, 'test']);
+
+//Route::get('/body_records', [BodyRecordController::class, 'index']);
 

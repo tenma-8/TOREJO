@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('body_records', function (Blueprint $table) {
             $table->id();
-            $table->unsigned('user_id');
+            //$table->foreignId('user_id')->constrained();
             $table->double('height', 5, 2);
             $table->double('weight', 5, 2);  
             $table->timestamps();
