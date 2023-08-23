@@ -21,6 +21,7 @@ return new class extends Migration
             $table->double('weight', 5, 2);//重量
             $table->string('comment');//コメント
             $table->double('numerical_value', 5, 2);//数値　ex.球速、50Mタイム
+            $table->timestampTz('original_created_at')->nullable();
             $table->timestamps();
         });
     }

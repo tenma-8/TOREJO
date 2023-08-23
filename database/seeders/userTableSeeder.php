@@ -15,10 +15,10 @@ class userTableSeeder extends Seeder
      */
     public function run()
     {
-         DB::table('users')->insert([
-                'email' => 'aaiiiuuro',
-                'password' => '2949',
-                'name' => 'てんま',
-         ]);//
+       // DB::table('users')->insert([
+                //'email' => 'aaiiiuuro',
+               // 'password' => '2949',
+               // 'name' => 'てんま',
+        // ]);//
     }
 }

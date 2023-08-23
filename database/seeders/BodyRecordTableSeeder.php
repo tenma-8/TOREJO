@@ -16,10 +16,10 @@ class BodyRecordTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('body_records')->insert([
-                'user_id' => '1',
-                'height' => '173.0',
-                'weight' => '76.0',
-         ]);//
+        //DB::table('body_records')->insert([
+               // 'user_id' => '1',
+               // 'height' => '173.0',
+               // 'weight' => '76.0',
+         //]);//
     }
 }
