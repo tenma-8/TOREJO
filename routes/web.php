@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\BodyRecordController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BodyRecordController;
+use App\Http\Controllers\ExerciseRecordController;
 
 
 /*
@@ -25,11 +26,18 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::controller(BodyRecordcontroller::class)->middleware(['auth'])->group(function(){
-    Route::get('/', 'body')->name('body');
+Route::controller(BodyRecordController::class)->middleware(['auth'])->group(function(){
+    Route::get('/body', 'body')->name('body');
     //Route::get('/',[BodyRecordController::class, 'body']);
     Route::get('/body_records/body', 'create')->name('create');
     Route::post('/body_records/body', 'store')->name('store');
+});
+
+Route::get('/', [ExreciseRecordController::class,'exercise']);
+
+Route::controller(ExerciseRecordController::class)->middleware(['auth'])->group(function(){
+    Route::get('/', 'exercise')->name('exercise');
+    //Route::get('/', 'exercise')->name('exercise');
 });
 
 Route::middleware('auth')->group(function () {
