@@ -15,7 +15,7 @@
         <h1>今日のご予定は？</h1>
         <h2>トレー二ングの記録</h2>
         <h2>トレーニングを探す</h2>
-        <h3>あなたの身長と体重を教えてください</h3>
+        <h3>今日のあなたを記録しましょう！！</h3>
         <form action="/body_records" method="POST">
             @csrf
             <div class='body_records'>
