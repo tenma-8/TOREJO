@@ -52,6 +52,16 @@ class User extends Authenticatable
         return $this->hasMany(ExerciseRecord::class);
     }
     
+    public function exercise_count()
+    {
+        return $this->hasMany(ExerciseCount::class);
+    }
+    
+    public function exercise_numerical()
+    {
+        return $this->hasMany(ExerciseNumerical::class);
+    }
+    
     public function training_suggestions()
     {
         return $this->hasMany(TrainingSuggestion::class);

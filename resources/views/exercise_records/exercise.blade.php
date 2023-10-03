@@ -12,6 +12,7 @@
     </head>
     </x-slot>
     <body>
+        <a href='/exercise_records/exercise_choise'>create</a>
             <div class='exercise_records'>
                 @foreach ($exercise_records as $exercise)
                 <div class='exercise'>
@@ -24,6 +25,7 @@
                 </div>
                 @endforeach
             </div>
+            
             <div>
             <p>ログインユーザー：{{ Auth::user()->name }}</p>
             </div>

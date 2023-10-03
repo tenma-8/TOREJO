@@ -9,26 +9,19 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 //use App\Models\Training;
 
 
-class ExerciseRecord extends Model
+class ExerciseNumerical extends Model
 {
     use HasFactory;
     
     protected $fillable = [
     'user_id',
     'training_id',
-    'comment',
+    'count',
+    'weight',
     'created_at',
     ];
     
 
-
-    public function getPaginateByLimit(int $limit_count = 5)
-    {
-    // updated_atで降順に並べたあと、limitで件数制限をかける
-        return $this->orderBy('created_at', 'DESC')->paginate($limit_count);
-    }
-
-    
     public function user()
     {
         return $this->belongsTo(User::class);

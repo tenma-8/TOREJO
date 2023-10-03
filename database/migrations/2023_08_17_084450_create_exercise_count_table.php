@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('exercise_records', function (Blueprint $table) {
+        Schema::create('exercise_count', function (Blueprint $table) {
             $table->id();
+            $table->timestamps();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('training_id')->constrained();
-            //$table->string('training_name');//
-            $table->string('comment');//コメント
+            $table->integer('count');//回数
+            $table->double('weight', 5, 2);//重量
             $table->timestampTz('original_created_at')->nullable();
-            $table->timestamps();
         });
     }
 
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('exercise_records');
+        Schema::dropIfExists('exercise_count');
     }
 };

@@ -23,5 +23,27 @@ class ExerciseRecordController extends Controller
         return view('exercise_records/exercise');
     }
     
+    public function create()
+    {
+        return view('exercise_records/exercise_choise');
+    }
     
+    public function 筋力トレーニング()
+    {
+        return view('exercise_records/muscle_create');
+    }
+    
+    public function その他トレーニング()
+    {
+        return view('exercise_records/exercise_numerical');
+    }
+    
+    public function store(Request $request, ExerciseRecord $exercise_record)
+    {
+        $exercise_record->user_id = \Auth::id();
+        $exercise_record->training_id = \Auth::id();
+        $input = $request['exercise_record'];
+        $exercise_record->fill($input)->save();
+        return redirect('/exercise_records/' . $exercise->id);
+    }
 }
