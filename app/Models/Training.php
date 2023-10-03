@@ -14,6 +14,16 @@ class Training extends Model
         return $this->hasMany(Exercise_record::class);
     }
     
+    public function exercise_count()
+    {
+        return $this->hasMany(ExercisCount::class);
+    }
+    
+    public function exercise_numerical()
+    {
+        return $this->hasMany(ExerciseNumerical::class);
+    }
+    
     public function category_training()
     {
         return $this->hasMany(Category_training::class);

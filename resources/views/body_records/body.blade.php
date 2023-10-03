@@ -18,21 +18,19 @@
         <h3>今日のあなたを記録しましょう！！</h3>
         <form action="/body_records" method="POST">
             @csrf
-            <div class='body_records'>
-                <div class='body'>
-                <p class='height'>身長：
-                <input type="number" name="body[height]" step="0.01" placeholder="000.00"/>cm
-                </p>
-                <p class='weight'>体重：
-                <input type="number" name="body[weight]" step="0.01" placeholder="000.00"/>kg
-                </p>
-                </div>
+            <div class='height'>
+                <p>身長：</p>
+                <input type="number" name="body[height]" step="0.01" placeholder="000.00"/>
+            </div>    
+            <div class='weight'>    
+                <p>体重：</p>
+                <input type="number" name="body[weight]" step="0.01" placeholder="000.00"/>
             </div>
             <input type="submit" value="保存" />
-            </form>
-            <div>
+        </form>
+        <div>
             <p>ログインユーザー：{{ Auth::user()->name }}</p>
-            </div>
+        </div>
     </body>
     </x-app-layout>
 </html>

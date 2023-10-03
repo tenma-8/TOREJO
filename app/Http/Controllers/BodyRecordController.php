@@ -21,12 +21,14 @@ class BodyRecordController extends Controller
         return view('body_records/body');
     }
     
-    public function store(Request $request, BodyRecord $body_record)
+    
+    public function store(Request $request, BodyRecord $body)
     {
+        //$body_record = new BodyRecord();
         $body_record->user_id = \Auth::id();
         $input = $request['body'];
-        $body_record->fill($input)->save();
-        return redirect('/');
+        $body->fill($input)->save();
+        return redirect('/body_records/' . $body->id);
     }
 
 }
