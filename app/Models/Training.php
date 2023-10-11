@@ -38,4 +38,8 @@ class Training extends Model
     {
         return $this->hasMany(Body_part_training::class);
     }
+    
+    public function getPaginateByLimit(int $limit_count = 10){
+        return $this->orderBy('updated_at', 'DESC')->paginate($limit_count);
+    }
 }
