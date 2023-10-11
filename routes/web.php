@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BodyRecordController;
 use App\Http\Controllers\ExerciseRecordController;
+use App\Http\Controllers\TrainingController;
 
 
 /*
@@ -45,6 +46,15 @@ Route::controller(ExerciseRecordController::class)->middleware(['auth'])->group(
 
 
     //Route::get('/', 'exercise')->name('exercise');
+});
+
+Route::controller(TrainingController::class)->middleware(['auth'])->group(function () {
+    Route::get('/training_summary', 'summary')->name('summary');
+    Route::get('trainings/training_resistance', 'レジスタンストレーニング')->name('レジスタンストレーニング');
+    Route::get('trainings/training_arm', '腕')->name('腕');
+    Route::get('/trainings/{training_arm}', 'show');
+    //Route::get('/trainings/{list}', [TrainingController::class ,'list']);
+
 });
 
 Route::middleware('auth')->group(function () {
