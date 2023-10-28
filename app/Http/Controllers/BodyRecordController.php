@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\PostRequest;
+use App\Http\Requests\BodyRecordRequest;
 use App\Models\BodyRecord;
-use App\Models\Users;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -22,13 +22,15 @@ class BodyRecordController extends Controller
     }
     
     
-    public function store(Request $request, BodyRecord $body)
+    public function store(BodyRecord $body, Request $request)
     {
-        //$body_record = new BodyRecord();
-        $body_record->user_id = \Auth::id();
         $input = $request['body'];
-        $body->fill($input)->save();
+        $body->fill($input)->users()->associate($user)->save();
         return redirect('/body_records/' . $body->id);
+        //dd($input);
     }
-
+        //BodyRecord::create(['user_id' => $userId, 'other_coulumn' => 'value']);
+        //$BodyRecord -> user_id = Bodyrecord::where('user_id', '=', Auth::id())->first()->id;
+        //$body_record = new BodyRecord();
+        //$body_record->user_id = \Auth::id();
 }

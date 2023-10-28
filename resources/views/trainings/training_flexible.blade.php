@@ -12,16 +12,18 @@
     </head>
     </x-slot>
     <body>
-        <h1> 腕</h1>
-        <h2>物を投げる、相手を押したりする動作に役立つ筋肉です</br>
-        腕は大きく上腕二頭筋と上腕三頭筋の二つに分けられます。</br>
-            二つをバランスよく鍛えることでより太く逞しい腕を作り上げることが出来ます。</br>
+        <h1> 柔軟トレーニング</h1>
+        <h2>柔軟トレーニングとは、腱や関節、筋肉を伸ばし、関節の可動域を広げるトレーニングです。</h2></br>
+        
+        <h3></br>関節の可動域が広いと、自身の体を思い通り動かしやすくなり、また、ケガ予防にもなります。。
+        </h3>
+        
         
         <div class='trainings'>
-            @foreach ($training as $arm)
+            @foreach ($training as $flexible)
                 <div class='training'>
                     <h2 class='name'>
-                        <a href="/trainings/{{ $arm->id }}">{{ $arm->name }}</a>
+                        <a href="/trainings/{{ $flexible->id }}">{{ $flexible->name }}</a>
                     </h2>
                 </div>
             @endforeach

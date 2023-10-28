@@ -13,7 +13,8 @@
         </h1>
         <div class="body">
             <div class="training__body">
-                <h3>解説</h3>
+                
+                <h3>対象部位:{{ $training->part }}</h3>
                 <p>{{ $training->body }}</p>
             </div>
         </div>

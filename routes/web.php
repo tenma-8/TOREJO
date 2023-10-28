@@ -27,7 +27,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::controller(BodyRecordController::class)->middleware(['auth'])->group(function () {
+Route::controller(BodyRecordController::class)->middleware(['auth'])->group(function(){
     Route::get('/body', 'body')->name('body');
     //Route::get('/',[BodyRecordController::class, 'body']);
     //Route::get('/body_records/body', 'create')->name('create');
@@ -50,9 +50,24 @@ Route::controller(ExerciseRecordController::class)->middleware(['auth'])->group(
 
 Route::controller(TrainingController::class)->middleware(['auth'])->group(function () {
     Route::get('/training_summary', 'summary')->name('summary');
-    Route::get('trainings/training_resistance', 'レジスタンストレーニング')->name('レジスタンストレーニング');
-    Route::get('trainings/training_arm', '腕')->name('腕');
-    Route::get('/trainings/{training_arm}', 'show');
+    Route::get('trainings/training_resistance', 'レジスタンストレーニング');//->name('レジスタンストレーニング');
+    Route::get('trainings/training_arm', '腕');
+    Route::get('trainings/training_shoulder', '肩');
+    Route::get('trainings/training_back', '背中');
+    Route::get('trainings/training_chest', '胸');
+    Route::get('trainings/training_reg', '脚');
+    
+    Route::get('trainings/training_saq', 'SAQトレーニング');
+    
+    Route::get('trainings/training_balance', 'バランストレーニング');
+    
+    Route::get('trainings/training_power', 'パワートレーニング');
+    
+    Route::get('trainings/training_stamina', '持久力トレーニング');
+    
+    Route::get('trainings/training_flexible', '柔軟トレーニング');
+
+    Route::get('/trainings/{training}', 'show');
     //Route::get('/trainings/{list}', [TrainingController::class ,'list']);
 
 });

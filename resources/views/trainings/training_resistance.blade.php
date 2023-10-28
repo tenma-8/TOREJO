@@ -23,10 +23,10 @@
             鍛えたい体の部位を選んでください。</br></br>
             
             <a href='/trainings/training_arm'>腕</a></br>
-            <a href='/trainings/training_resistance'>肩</a></br>
-            <a href='/trainings/training_resistance'>背中</a></br>
-            <a href='/trainings/training_resistance'>胸</a></br>
-            <a href='/trainings/training_resistance'>脚</a></br>
+            <a href='/trainings/training_shoulder'>肩</a></br>
+            <a href='/trainings/training_back'>背中</a></br>
+            <a href='/trainings/training_chest'>胸</a></br>
+            <a href='/trainings/training_reg'>脚</a></br>
 
             </h2>
         

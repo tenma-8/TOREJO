@@ -12,25 +12,30 @@
     </head>
     </x-slot>
     <body>
-        <h1> あなたの目的に合ったトレーニングを選んでください。</h1>
+        <h1> あなたの目的に合ったトレーニングを選んでください。</h1></br>
         
-        <a href='/trainings/training_resistance'>レジスタンストレーニング</a></br>
-        <a> 筋肉に繰り返し抵抗（レジスタンス）を負荷をかけるトレーニング。一般的な筋トレはこれを指す。</a></br>
         
-        <a href='/exercise_records/exercise_numerical'>スピードトレーニング</a></br>
-        <a> スポーツで重要な能力の一つであるスピードを高めるトレーニング。</a>
+        <a href='/trainings/training_resistance'>１、レジスタンストレーニング</a>
+        <a> ：筋肉に繰り返し抵抗（レジスタンス）を負荷をかけるトレーニング。</a></br>
         
-        <a href='/exercise_records/exercise_numerical'>バランスレーニング</a></br>
-        <a> 身体をバランスを鍛える、日常においても必要不可欠なトレーニング。体幹などを鍛える。</a>
+        <a href='/trainings/training_saq'>２、SAQトレーニング</a>
+        <a> ：スポーツで重要なスピード(Speed)、アジリティ(Agility)、クイックネス(Quickness)を鍛えるトレーニング。</a></br>
         
-        <a href='/exercise_records/exercise_numerical'>パワートレーニング</a></br>
-        <a> 瞬間的に大きな力を発揮するためのトレーニング</a>
+        <a href='/trainings/training_balance'>３、バランスレーニング</a>
+        <a> ：身体をバランスを鍛える、日常においても必要不可欠なトレーニング。体幹などを鍛える。</a></br>
+
         
-        <a href='/exercise_records/exercise_numerical'>持久力トレーニング</a></br>
-        <a> 運動を持続して行うことで、体の機能を高める方法。</a>
+        <a href='/trainings/training_power'>４、パワートレーニング</a>
+        <a>：瞬間的に大きな力を発揮するためのトレーニング。</a></br>
         
-        <a href='/exercise_records/exercise_numerical'>柔軟性トレーニング</a></br>
-        <a> 筋肉を伸ばすことで関節の可動域を広げ、体の柔軟性を高める運動。</a>
+        
+        <a href='/trainings/training_stamina'>５、持久力トレーニング</a>
+         <a> ：運動を持続して行うことで、体の機能を高める方法。</a></br>
+       
+        
+        <a href='/trainings/training_flexible'>６、柔軟トレーニング</a> 
+        <a> ：筋肉を伸ばすことで関節の可動域を広げ、体の柔軟性を高めるトレーニング。</a></br>
+            
             <div>
             <p>ログインユーザー：{{ Auth::user()->name }}</p>
             </div>
