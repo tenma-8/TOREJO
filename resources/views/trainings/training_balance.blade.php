@@ -12,16 +12,16 @@
     </head>
     </x-slot>
     <body>
-        <h1> 腕</h1>
-        <h2>物を投げる、相手を押したりする動作に役立つ筋肉です</br>
-        腕は大きく上腕二頭筋と上腕三頭筋の二つに分けられます。</br>
-            二つをバランスよく鍛えることでより太く逞しい腕を作り上げることが出来ます。</br>
+        <h1> バランスレーニング</h1>
+        <h2>バランストレーニングとは、不安定な場所でトレーニングを行うことで、普段刺激されにくい筋肉・腱・関節に刺激を与えるトレーニングです。</br>自身の重心位置をコントロールできるようになるので、スポーツではパフォーマンスアップ、ケガ予防に効果があります。</h2></br>
+        
+        
         
         <div class='trainings'>
-            @foreach ($training as $arm)
+            @foreach ($training as $balance)
                 <div class='training'>
                     <h2 class='name'>
-                        <a href="/trainings/{{ $arm->id }}">{{ $arm->name }}</a>
+                        <a href="/trainings/{{ $balance->id }}">{{ $balance->name }}</a>
                     </h2>
                 </div>
             @endforeach

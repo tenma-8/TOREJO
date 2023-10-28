@@ -12,16 +12,16 @@
     </head>
     </x-slot>
     <body>
-        <h1> 腕</h1>
-        <h2>物を投げる、相手を押したりする動作に役立つ筋肉です</br>
-        腕は大きく上腕二頭筋と上腕三頭筋の二つに分けられます。</br>
-            二つをバランスよく鍛えることでより太く逞しい腕を作り上げることが出来ます。</br>
+        <h1> 肩</h1>
+        <h2>肩は全てのスポーツで使う場所であり、肩関節を守るのに役に立つ筋肉です。</br>
+        対象部位:三角筋</br>
+            肩はほとんどのスポーツで使う筋肉で、特に投げる動作に使い、痛める頻度が高い場所です。肩の筋力トレーニングとともに柔軟トレーニングも一緒に行うようにしましょう。</br></h2>
         
         <div class='trainings'>
-            @foreach ($training as $arm)
+            @foreach ($training as $shoulder)
                 <div class='training'>
                     <h2 class='name'>
-                        <a href="/trainings/{{ $arm->id }}">{{ $arm->name }}</a>
+                        <a href="/trainings/{{ $shoulder->id }}">{{ $shoulder->name }}</a>
                     </h2>
                 </div>
             @endforeach

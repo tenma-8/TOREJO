@@ -12,16 +12,16 @@
     </head>
     </x-slot>
     <body>
-        <h1> 腕</h1>
-        <h2>物を投げる、相手を押したりする動作に役立つ筋肉です</br>
-        腕は大きく上腕二頭筋と上腕三頭筋の二つに分けられます。</br>
-            二つをバランスよく鍛えることでより太く逞しい腕を作り上げることが出来ます。</br>
+        <h1> 脚</h1>
+        <h2>走る、投げる、跳ぶなど人間の動力の起点となる筋肉です。</br>
+        対象部位：大臀筋、中臀筋、大腿四頭筋、ハムストリングス、腓腹筋、ヒラメ筋</br>
+        </h2>
         
         <div class='trainings'>
-            @foreach ($training as $arm)
+            @foreach ($training as $reg)
                 <div class='training'>
                     <h2 class='name'>
-                        <a href="/trainings/{{ $arm->id }}">{{ $arm->name }}</a>
+                        <a href="/trainings/{{ $reg->id }}">{{ $reg->name }}</a>
                     </h2>
                 </div>
             @endforeach

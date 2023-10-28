@@ -12,21 +12,18 @@
     </head>
     </x-slot>
     <body>
-        <h1>今日のご予定は？</h1>
-        <h2>トレー二ングの記録</h2>
-        <h2>トレーニングを探す</h2>
-        <h3>今日のあなたを記録しましょう！！</h3>
-        <form action="/body_records" method="POST">
-            @csrf
+        <h1>今日のあなたを記録しましょう！！</h1>
+        <form action="/body_records/" method="POST">
+        　　 @csrf
             <div class='height'>
-                <p>身長：</p>
+                <h2>身長：</h2>
                 <input type="number" name="body[height]" step="0.01" placeholder="000.00"/>
             </div>    
             <div class='weight'>    
-                <p>体重：</p>
+                <h2>体重：</h2>
                 <input type="number" name="body[weight]" step="0.01" placeholder="000.00"/>
             </div>
-            <input type="submit" value="保存" />
+            <input type="submit" value="store" />
         </form>
         <div>
             <p>ログインユーザー：{{ Auth::user()->name }}</p>
