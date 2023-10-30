@@ -11,6 +11,8 @@ class BodyRecord extends Model
 {
     use HasFactory;
     
+    protected $table = "body_records";
+    
     
     public function user()
     {

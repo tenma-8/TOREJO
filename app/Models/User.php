@@ -13,6 +13,10 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public function body_records()
+        {
+            return $this->hasMany(BodyRecord::class);
+        }
     /**
      * The attributes that are mass assignable.
      *
@@ -43,10 +47,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
-    public function body_records()
-    {
-        return $this->hasMany(BodyRecord::class);
-    }
+    
     
     public function exercise_records()
     {

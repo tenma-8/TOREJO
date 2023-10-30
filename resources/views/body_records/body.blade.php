@@ -13,7 +13,7 @@
     </x-slot>
     <body>
         <h1>今日のあなたを記録しましょう！！</h1>
-        <form action="/body_records/" method="POST">
+        <form action="/body_records" method="POST">
         　　 @csrf
             <div class='height'>
                 <h2>身長：</h2>
@@ -25,6 +25,10 @@
             </div>
             <input type="submit" value="store" />
         </form>
+        
+        <h1>graph</h1>
+        {{ $log_list }}
+
         <div>
             <p>ログインユーザー：{{ Auth::user()->name }}</p>
         </div>
