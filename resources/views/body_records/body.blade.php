@@ -26,9 +26,18 @@
             <input type="submit" value="store" />
         </form>
         
-        <h1>graph</h1>
-        {{ $log_list }}
+        
+        <div class='body_records'>
+            @foreach ($body_records as $body)
+            <div class=''>
+            <h2>{{ $body->created_at }}</h2>
+            </div>
+            @endforeach
+        </div>
 
+        <h2 class='weight'>
+            <a href="/body_records/{{ $body->id }}">{{ $body->weight }}</a>
+        </h2>
         <div>
             <p>ログインユーザー：{{ Auth::user()->name }}</p>
         </div>
