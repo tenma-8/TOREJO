@@ -7,7 +7,9 @@ use App\Http\Requests\BodyRecordRequest;
 use App\Models\BodyRecord;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-    
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+
 
 class BodyRecordController extends Controller
 {
@@ -16,16 +18,16 @@ class BodyRecordController extends Controller
         return view('body_records/body')->with(['body_records' =>$body_record->get()]);//$postの中身を戻り値にする。
     }
     
-    public function index(Post $post)
+    public function index(BodyRecord $body)
     {
-        return view('posts/index')->with(['posts' => $post->get()]);
-        //blade内で使う変数'posts'と設定。'posts'の中⾝にgetを使い、インスタンス化した$postを代⼊。
+        return view('body_records/body')->with(['body' => $body->get()]);
+        
     }
     
     public function show(BodyRecord $body)
     {
         return view('body_records/body_show')->with(['body' => $body]);
-        //'body'はbladeファイルで使う変数。中⾝は$bodyはid=1のPostインスタンス。
+       
     }
     
    /* public function body_record()
@@ -47,17 +49,29 @@ class BodyRecordController extends Controller
         return redirect('/body_records/'.$body->id);
     }
     
-    /* public function body_weight_log(Request $request)
-    //{
-        //$log_list['user_id'] = Auth::id();
-        //$log_list = BodyRecord::wehre("date_key","like",date("Y") . "%")->get();
-        //return view('body_records/body',["log_list" =>$log_list]);
-    }*/
-        //$users = User::all()->BodyRecord::find(1)->users;
-        //dd($users);
-        //BodyRecord::create(['user_id' => $userId, 'other_coulumn' => 'value']);
-        //$BodyRecord -> user_id = Bodyrecord::where('user_id', '=', Auth::id())->first()->id;
-        //$body_record = new BodyRecord();
-        //$body->fill($input)->user()->associate($user)->save();
-        //$body_record->user_id = \Auth::id();
+    public function showGraph()
+    {
+        $userId = Auth::id(); // ログイン中のユーザーのIDを取得
+
+        // 一週間ごとのweightデータを取得
+        $data = BodyRecord::where('user_id', $userId)
+        ->select(DB::raw('MONTH(created_at) as month'), DB::raw('YEAR(created_at) as year'), DB::raw('AVG(weight) as average_weight'))
+            ->groupBy('year', 'month')
+            ->orderBy('year', 'desc')
+            ->orderBy('month', 'desc')
+            ->get();
+           // ->selectRaw('DATE(created_at) as date, AVG(weight) as average_weight')
+           // ->where('created_at', '>=', now()->subWeek()) // 一週間前からのデータ
+            //->groupBy('date')
+            //->orderBy('date', 'asc')
+            //->get();
+            
+            $data = array();
+        return view('body_records/body', compact('data'));
+        //return view('body_records/body_body', ['data' => $data]);
+    }
 }
+    
+  
+	
+      

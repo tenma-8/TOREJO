@@ -14,7 +14,7 @@
         <p>{{ $body->created_at }}</p>
         </div>
         <div class="footer">
-            <a href="/">戻る</a>
+            <a href="/body_records/body">戻る</a>
         </div>
     </body>
 </html>

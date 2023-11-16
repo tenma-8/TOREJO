@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users');
             $table->double('height', 5, 2);
             $table->double('weight', 5, 2);
-            $table->string("date_key");
+            //$table->string("date_key");
             $table->timestampTz('original_created_at')->nullable();
             $table->timestamps();
         });
