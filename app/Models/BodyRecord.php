@@ -11,12 +11,12 @@ class BodyRecord extends Model
 {
     use HasFactory;
     
-    //protected $table = "body_records";
+    protected $table = "body_records";
     
     
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
     
     protected $fillable = [

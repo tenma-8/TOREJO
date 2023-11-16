@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <x-app-layout>
     <x-slot name="header">
     <head>
@@ -8,9 +9,10 @@
 
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
     </head>
     </x-slot>
+    
     <body>
         <h1>今日のあなたを記録しましょう！！</h1>
         <form action="/body_records" method="POST">
@@ -25,19 +27,43 @@
             </div>
             <input type="submit" value="store" />
         </form>
-        
-        
-        <div class='body_records'>
-            @foreach ($body_records as $body)
-            <div class=''>
-            <h2>{{ $body->created_at }}</h2>
-            </div>
-            @endforeach
-        </div>
 
-        <h2 class='weight'>
-            <a href="/body_records/{{ $body->id }}">{{ $body->weight }}</a>
-        </h2>
+     
+ 
+        <div class="container">
+            <h2>一週間ごとの体重グラフ</h2>
+            <canvas id="chart-container"></canvas>
+        </div>
+        
+  
+        <script>
+            var ctx = document.getElementById('chart-container').getContext('2d');
+            var chartData = @json($data);
+            
+            var months = chartData.map(data => data.month + '/' + data.year);
+            var weights = chartData.map(data => data.average_weidght);
+        
+            var chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: months,
+                    datasets: [{
+                        label: '平均体重',
+                        data: weights,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        </script>
+
         <div>
             <p>ログインユーザー：{{ Auth::user()->name }}</p>
         </div>

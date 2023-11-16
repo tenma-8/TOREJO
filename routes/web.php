@@ -39,7 +39,7 @@ Route::controller(BodyRecordController::class)->middleware(['auth'])->group(func
     Route::get('/body', 'body')->name('body');
     Route::get('/body_records/{body}', 'show');
     Route::post('/body_records/', 'store');//->name('store');
-    //Route::get('/graph', "body_weight_log")->name("body_weight_log_graph");
+    Route::get('/body', "showGraph")->name("body");
     //Route::get('body_records/body', 'index');
 
 });
