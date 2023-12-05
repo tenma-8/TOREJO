@@ -36,10 +36,11 @@ Route::get('/dashboard', function () {
 
 
 Route::controller(BodyRecordController::class)->middleware(['auth'])->group(function(){
-    Route::get('/body', 'body')->name('body');
+    Route::get('/body_records/body', 'body')->name('body');
+    Route::post('/body_records/', 'store')->name('store');
     Route::get('/body_records/{body}', 'show');
-    Route::post('/body_records/', 'store');//->name('store');
-    Route::get('/body', "showGraph")->name("body");
+    Route::get('/body_records/body', "showGraph")->name("body");
+
     //Route::get('body_records/body', 'index');
 
 });
