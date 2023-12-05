@@ -11,7 +11,17 @@ class BodyRecord extends Model
 {
     use HasFactory;
     
-    protected $table = "body_records";
+    protected $table = 'body_records';
+    protected $primaryKey = 'user_id';
+    
+     protected $fillable = [
+        'height',
+        'weight',
+        'user_id',
+        'created_at'
+    ];
+    
+   
     
     
     public function user()
@@ -19,11 +29,6 @@ class BodyRecord extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
     
-    protected $fillable = [
-        'height',
-        'weight',
-        'user_id'
-    ];
     
    
 }
