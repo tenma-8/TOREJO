@@ -28,26 +28,19 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-/*Route::controller(ChartController::class)->middleware(['auth'])->group(function (){
-    Route::get('body_records/body', 'index');
-
-});*/
 
 
 
 Route::controller(BodyRecordController::class)->middleware(['auth'])->group(function(){
+    //体重グラフルーティング
     Route::get('/body_records/body', 'body')->name('body');
     Route::post('/body_records/', 'store')->name('store');
     Route::get('/body_records/{body}', 'show');
     Route::get('/body_records/body', "showGraph")->name("body");
 
-    //Route::get('body_records/body', 'index');
-
+ 
 });
 
-//BodyRecordControllerコード
-    //Route::get('/',[BodyRecordController::class, 'body']);
-    //Route::get('/body_records/body', 'create')->name('create');
 
 
 Route::controller(ExerciseRecordController::class)->middleware(['auth'])->group(function(){
@@ -57,10 +50,7 @@ Route::controller(ExerciseRecordController::class)->middleware(['auth'])->group(
     Route::get('/exercise_records/exercise_numerical', 'その他トレーニング')->name('その他トレーニング');
     Route::post('/exercise_records', 'store')->name('store');
 
-//ExerciseRecordControllerコード
-    //Route::get('/', [ExreciseRecordController::class,'exercise']);
-    //Route::get('/eexrcise_records/musclr_create', [ExreciseRecordController::class, 'create']);
-    //Route::get('/', 'exercise')->name('exercise');
+
 });
 
 Route::controller(TrainingController::class)->middleware(['auth'])->group(function () {//トレーニング一覧ページのルーティング
@@ -83,7 +73,7 @@ Route::controller(TrainingController::class)->middleware(['auth'])->group(functi
     Route::get('trainings/training_flexible', '柔軟トレーニング');
 
     Route::get('/trainings/{training}', 'show');
-    //Route::get('/trainings/{list}', [TrainingController::class ,'list']);
+    
 
 });
 

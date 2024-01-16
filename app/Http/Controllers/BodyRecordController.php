@@ -30,11 +30,6 @@ class BodyRecordController extends Controller
        
     }
     
-   /* public function body_record()
-    {
-     return view('body_records/body');
-    }*/
-    
     
     public function store(BodyRecord $body, Request $request)
     {
@@ -59,22 +54,6 @@ class BodyRecordController extends Controller
         ->select('created_at','weight')
         ->get();
         
-        //$data = BodyRecord::where("data_key","like",created_at("Y") . "%")->get();
-            //('user_id', $userId)
-            // ->select(DB::raw('MONTH(created_at) as month'), DB::raw('YEAR(created_at) as year'), DB::raw('AVG(weight) as average_weight'))
-            // ->groupBy('year', 'month')
-            // ->orderBy('year', 'desc')
-            // ->orderBy('month', 'desc')
-            // ->get();
-            // ->selectRaw('DATE(created_at) as date, AVG(weight) as average_weight')
-            // ->where('created_at', '>=', now()->subWeek()) // 一週間前からのデータ
-            //->groupBy('date')
-            //->orderBy('date', 'asc')
-            //->get();
-            
-            //$data = array();
-        //return view('body_records/body', compact('data'));
-        //return view('body_records/body_body', ['data' => $data]);
         
         return view("/body_records/body",["data" => $data]);
     }
